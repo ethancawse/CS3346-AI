@@ -141,10 +141,10 @@ def value_iteration(grid, gamma=0.9, theta=0.01, p_forward=0.8, p_left=0.1, p_ri
 
 def arrows_from_policy(policy):
     mapping = {
-        "U": "↑",
-        "D": "↓",
-        "L": "←",
-        "R": "→",
+        "U": "^",
+        "D": "V",
+        "L": "<",
+        "R": ">",
         "Wall": "#",
         "Goal": "G"
     }
@@ -184,14 +184,14 @@ if __name__ == "__main__":
     [ 0.0 , -0.01, -0.01, -0.01, -0.20, -0.20, -0.04, -0.04, -0.04, -0.04],
     ]
     grid_bad_shortcut = [
-    [0.0,  -50.0, -50.0, 10.0],
+    [0.0,  -5.0, -5.0, 10.0],
     [-0.1,  "##",  "##", -0.1],
     [-0.1,  "##",  "##", -0.1],
     [-0.1, -0.1, -0.1, -0.1],
     ]
 
 
-    convergence, policy = value_iteration(big_grid)
+    convergence, policy = value_iteration(grid_bad_shortcut)
 
     print("Convergence Values:")
     for row in convergence:
